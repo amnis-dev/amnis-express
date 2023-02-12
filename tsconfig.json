@@ -1,0 +1,14 @@
+{
+  "extends": "@amnis/tsconfig-node",
+  "compilerOptions": {
+    "types": ["node", "vitest/globals"],
+    "outDir": "./lib",
+    "declarationDir": "./lib",
+    "composite": true,
+    "declaration": true,
+    "sourceMap": false,
+    "rootDir": "./src",
+    "esModuleInterop": true,
+  },
+  "include": ["./src/**/*.ts*"],
+}
