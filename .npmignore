@@ -1,0 +1,13 @@
+# Source Folder
+src/
+
+# Configuration files/folders
+.*
+babel*
+jest*
+
+# Lock file
+yarn.lock
+
+# TypeScript Configuration Files
+tsconfig.*

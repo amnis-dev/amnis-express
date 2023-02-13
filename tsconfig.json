@@ -2,13 +2,13 @@
   "extends": "@amnis/tsconfig-node",
   "compilerOptions": {
     "types": ["node", "vitest/globals"],
-    "outDir": "./lib",
-    "declarationDir": "./lib",
+    "outDir": "./dist",
     "composite": true,
-    "declaration": true,
     "sourceMap": false,
     "rootDir": "./src",
     "esModuleInterop": true,
+    "moduleResolution": "node"
   },
   "include": ["./src/**/*.ts*"],
+  "files": ["./types/express.d.ts"]
 }
