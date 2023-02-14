@@ -5,14 +5,14 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@amnis/api@npm:0.13.0":
-  version: 0.13.0
-  resolution: "@amnis/api@npm:0.13.0"
+"@amnis/api@npm:0.13.1":
+  version: 0.13.1
+  resolution: "@amnis/api@npm:0.13.1"
   dependencies:
-    "@amnis/core": 0.13.0
+    "@amnis/core": 0.13.1
     cross-fetch: ^3.1.0
   peerDependencies:
-    "@reduxjs/toolkit": ^1.8.0
+    "@reduxjs/toolkit": "*"
     react: ^18.0.0
     react-redux: ^8.0.2
   peerDependenciesMeta:
@@ -20,16 +20,16 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 9e677f2047a1a9ee76f7f39c4145ad9f85b3c896569ed81d9bb056e91ee37d0050b0cd1949eb020c9df2b1b5dbe856d100771e9de7273651d35009041edea159
+  checksum: 393e766e24d92243b2780f4d7619ddf0adc029924111986d15ecabfbfdc2b9506743625abd51215eac4eb24b72245364f327a31fd26755d341dc2db5f66e9c41
   languageName: node
   linkType: hard
 
-"@amnis/core@npm:0.13.0, @amnis/core@npm:^0.13.0":
-  version: 0.13.0
-  resolution: "@amnis/core@npm:0.13.0"
+"@amnis/core@npm:0.13.1, @amnis/core@npm:^0.13.1":
+  version: 0.13.1
+  resolution: "@amnis/core@npm:0.13.1"
   peerDependencies:
-    "@reduxjs/toolkit": ^1.8.1
-  checksum: 8b056e52e12561956d67cbdaafa2735fbea32ea59b58136c7ebc0e39a5f8b28bc905b96cb11a2a26687355f4ef479c2e8d8048a7691f4c1bf3848e73e92ca4d5
+    "@reduxjs/toolkit": "*"
+  checksum: e52c0d93447cde8d1e4aa28ec71effe6f719ec1f0e5a2655ca176b4e6f2e47d831353f07ce0a96759f44d8c98c36b0c1454b3e90341015b293aa1c3111cf64d2
   languageName: node
   linkType: hard
 
@@ -52,12 +52,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@amnis/express@workspace:."
   dependencies:
-    "@amnis/core": ^0.13.0
+    "@amnis/core": ^0.13.1
     "@amnis/eslint-config-node": ^2.2.0
-    "@amnis/process": ^0.13.0
-    "@amnis/state": ^0.13.0
+    "@amnis/process": ^0.13.1
+    "@amnis/state": ^0.13.1
     "@amnis/tsconfig-node": ^2.2.0
     "@reduxjs/toolkit": alpha
+    "@types/cookie-parser": ^1.4.3
     "@types/express": ^4.17.17
     "@types/morgan": ^1.9.4
     "@types/node": ^18.13.0
@@ -65,6 +66,7 @@ __metadata:
     "@types/ws": ^8.5.4
     "@typescript-eslint/eslint-plugin": ^5.51.0
     "@typescript-eslint/parser": ^5.51.0
+    cookie-parser: ^1.4.6
     eslint: ^8.34.0
     eslint-config-airbnb-base: ^15.0.0
     eslint-import-resolver-typescript: ^3.5.3
@@ -82,28 +84,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@amnis/process@npm:^0.13.0":
-  version: 0.13.0
-  resolution: "@amnis/process@npm:0.13.0"
+"@amnis/process@npm:^0.13.1":
+  version: 0.13.1
+  resolution: "@amnis/process@npm:0.13.1"
   dependencies:
-    "@amnis/core": 0.13.0
-    "@amnis/state": 0.13.0
+    "@amnis/core": 0.13.1
+    "@amnis/state": 0.13.1
     ajv: ^8.11.0
     cross-fetch: ^3.1.0
   peerDependencies:
-    "@reduxjs/toolkit": ^1.8.1
-  checksum: 2511c771c5d98009e4924afc2867d4b335a5ee958e607e469d5fa63ae24d6e2e69fc0f1c1f5d365e6ad86ae826f8e190976f49f8e5837f328bc19546cc7dc2f1
+    "@reduxjs/toolkit": "*"
+  checksum: c1760df015c33f680b0290932904fd4a46e1a730155a26d59bfaed3ae87d9a0fa1266f6778ee243a0a6403f74c795c46ff649eed1a3c455beaa274a1cd6155a0
   languageName: node
   linkType: hard
 
-"@amnis/state@npm:0.13.0, @amnis/state@npm:^0.13.0":
-  version: 0.13.0
-  resolution: "@amnis/state@npm:0.13.0"
+"@amnis/state@npm:0.13.1, @amnis/state@npm:^0.13.1":
+  version: 0.13.1
+  resolution: "@amnis/state@npm:0.13.1"
   dependencies:
-    "@amnis/api": 0.13.0
-    "@amnis/core": 0.13.0
+    "@amnis/api": 0.13.1
+    "@amnis/core": 0.13.1
   peerDependencies:
-    "@reduxjs/toolkit": ^1.8.0
+    "@reduxjs/toolkit": "*"
     react: ^18.0.0
     react-redux: ^8.0.2
   peerDependenciesMeta:
@@ -111,7 +113,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 56f0e749895b8d749aaa0445607dc697d7b4512cc7f8bdc809e3f3f464d62c461d2a51f9180528507f56b2a1b242bc1f2818404f8730df695faeff888f958239
+  checksum: 1febbcf2d938cb1f0743362e7d0cd177156851b74a562d41320e557f1977b71a4b142bc7dd5666fec348e0ce58f989b1401388c1ac00bd7f680adfb1f16beaa0
   languageName: node
   linkType: hard
 
@@ -554,6 +556,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cookie-parser@npm:^1.4.3":
+  version: 1.4.3
+  resolution: "@types/cookie-parser@npm:1.4.3"
+  dependencies:
+    "@types/express": "*"
+  checksum: f390f3af1b1711190dee2c2ecd9af33af81fbde8d81ee820dadb6fe1e0d80c3faba40af37c6ed36fb88b04b64870f6a021f7e9edceecd17c42fe22abe0af5005
+  languageName: node
+  linkType: hard
+
 "@types/cookiejar@npm:*":
   version: 2.1.2
   resolution: "@types/cookiejar@npm:2.1.2"
@@ -572,7 +583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:^4.17.17":
+"@types/express@npm:*, @types/express@npm:^4.17.17":
   version: 4.17.17
   resolution: "@types/express@npm:4.17.17"
   dependencies:
@@ -1687,10 +1698,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie-parser@npm:^1.4.6":
+  version: 1.4.6
+  resolution: "cookie-parser@npm:1.4.6"
+  dependencies:
+    cookie: 0.4.1
+    cookie-signature: 1.0.6
+  checksum: 1e5a63aa82e8eb4e02d2977c6902983dee87b02e87ec5ec43ac3cb1e72da354003716570cd5190c0ad9e8a454c9d3237f4ad6e2f16d0902205a96a1c72b77ba5
+  languageName: node
+  linkType: hard
+
 "cookie-signature@npm:1.0.6":
   version: 1.0.6
   resolution: "cookie-signature@npm:1.0.6"
   checksum: f4e1b0a98a27a0e6e66fd7ea4e4e9d8e038f624058371bf4499cfcd8f3980be9a121486995202ba3fca74fbed93a407d6d54d43a43f96fd28d0bd7a06761591a
+  languageName: node
+  linkType: hard
+
+"cookie@npm:0.4.1":
+  version: 0.4.1
+  resolution: "cookie@npm:0.4.1"
+  checksum: bd7c47f5d94ab70ccdfe8210cde7d725880d2fcda06d8e375afbdd82de0c8d3b73541996e9ce57d35f67f672c4ee6d60208adec06b3c5fc94cebb85196084cf8
   languageName: node
   linkType: hard
 

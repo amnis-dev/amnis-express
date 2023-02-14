@@ -1,1 +1,1 @@
-export * from './mw.io';
+export * from './mw.io.js';

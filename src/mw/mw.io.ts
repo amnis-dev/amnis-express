@@ -2,7 +2,6 @@ import { RequestHandler } from 'express';
 import {
   IoContext,
   ioOutput,
-  System,
 } from '@amnis/core';
 import { systemSelectors } from '@amnis/state';
 import { httpAuthorizationParse } from '@amnis/process';
@@ -13,13 +12,12 @@ import { httpAuthorizationParse } from '@amnis/process';
  */
 export const mwIo = (context: IoContext): RequestHandler => (
   (req, res, next) => {
-    const output = ioOutput();
-
     /**
      * An active system is required for obtaining key settings.
      */
-    const system = systemSelectors.selectActive(context.store.getState()) as System;
+    const system = systemSelectors.selectActive(context.store.getState());
     if (!system) {
+      const output = ioOutput();
       output.status = 400;
       output.json.logs.push({
         level: 'error',
@@ -44,7 +42,7 @@ export const mwIo = (context: IoContext): RequestHandler => (
     const accessEncoded = httpAuthorizationParse(headerAuthorization);
 
     /**
-     * Set the input on the request object for the processors.
+     * Set the input on the HTTP request object for the processors.
      */
     req.input = {
       body,
@@ -56,8 +54,28 @@ export const mwIo = (context: IoContext): RequestHandler => (
     };
 
     /**
-     * Set a method to
+     * Applies the output to the HTTP response.
      */
+    res.output = (output) => {
+      /**
+       * Apply cookies to the response.
+       */
+      Object.keys(output.cookies).forEach((cookieName) => {
+        const cookieValue = output.cookies[cookieName];
+        if (cookieValue === undefined) {
+          res.clearCookie(cookieName);
+          return;
+        }
+        res.cookie(cookieName, cookieValue, {
+          path: '/',
+          sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'lax',
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+        });
+      });
+
+      res.status(output.status).json(output.json);
+    };
 
     next();
   }

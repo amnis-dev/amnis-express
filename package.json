@@ -8,15 +8,17 @@
   "type": "module",
   "packageManager": "yarn@3.4.1",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@amnis/core": "^0.13.0",
+    "@amnis/core": "^0.13.1",
     "@amnis/eslint-config-node": "^2.2.0",
-    "@amnis/process": "^0.13.0",
-    "@amnis/state": "^0.13.0",
+    "@amnis/process": "^0.13.1",
+    "@amnis/state": "^0.13.1",
     "@amnis/tsconfig-node": "^2.2.0",
     "@reduxjs/toolkit": "alpha",
+    "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.13.0",
@@ -24,6 +26,7 @@
     "@types/ws": "^8.5.4",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
+    "cookie-parser": "^1.4.6",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.3",
