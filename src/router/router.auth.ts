@@ -1,4 +1,5 @@
 import express from 'express';
+import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 
 import { processAuth } from '@amnis/process';
@@ -27,6 +28,7 @@ export const routerAuth: AmnisExpressRouter<typeof processAuth> = (
   /**
    * Set required middleware.
    */
+  router.use(helmet());
   router.use(express.json());
   router.use(cookieParser());
   router.use(mwIo(context));
