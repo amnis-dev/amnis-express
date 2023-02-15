@@ -1,11 +1,19 @@
+import type { Router, RequestHandler } from 'express';
 import type { IoContext, IoProcesses } from '@amnis/core';
-import type { Router } from 'express';
 
 /**
  * Router path options.
  */
 export interface AmnisExpressRouterPathOptions {
-  enabled: boolean,
+  /**
+   * Enable the use of this route.
+   */
+  enabled: boolean;
+
+  /**
+   * Use middleware on the route.
+   */
+  use: RequestHandler[];
 }
 
 /**
