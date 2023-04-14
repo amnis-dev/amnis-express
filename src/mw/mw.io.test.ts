@@ -1,8 +1,8 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import request from 'supertest';
-import { IoContext, ioOutput } from '@amnis/core';
-import { contextSetup } from '@amnis/state';
+import { IoContext, ioOutput } from '@amnis/state';
+import { contextSetup } from '@amnis/state/context';
 import { mwIo } from './mw.io.js';
 
 let context: IoContext;
@@ -40,7 +40,25 @@ beforeAll(async () => {
   app.get('/output-cookie', (req, res) => {
     const output = ioOutput();
     output.cookies.myCookie = 'yum';
-    res.output(output);
+    res.out(output);
+  });
+
+  app.get('/output-param/:param', (req, res) => {
+    expect(req.input);
+    expect(req.params.param).toBeDefined();
+    req.input.param = req.params.param;
+    expect(req.input.param).toEqual('my_parameter');
+    res.status(200).json({});
+  });
+
+  app.get('/output-query', (req, res) => {
+    expect(req.input);
+    expect(req.input.query).toBeTypeOf('object');
+    expect(req.input.query).toEqual({
+      myQuery: 'my_value',
+    });
+
+    res.status(200).json({});
   });
 });
 
@@ -80,5 +98,23 @@ describe('I/O Middleware', () => {
 
     expect(cookies).toHaveLength(1);
     expect(cookies[0]).toBe('myCookie=yum; Path=/; HttpOnly; Secure; SameSite=None');
+  });
+
+  test('should set param on input and respond successfully', async () => {
+    const response = await request(app)
+      .get('/output-param/my_parameter')
+      .set('Accept', 'application/json')
+      .send({});
+
+    expect(response.status).toBe(200);
+  });
+
+  test('should set query on input and respond successfully', async () => {
+    const response = await request(app)
+      .get('/output-query?myQuery=my_value')
+      .set('Accept', 'application/json')
+      .send({});
+
+    expect(response.status).toBe(200);
   });
 });

@@ -12,16 +12,15 @@ export default defineConfig({
     rollupOptions: {
       output: {
         globals: {
-          '@amnis/core': 'AmnisCore',
           '@amnis/state': 'AmnisState',
-          '@amnis/process': 'AmnisProcess',
+          '@amnis/api': 'AmnisApi',
+          '@amnis/api/process': 'AmnisApiProcess',
         },
       },
       external: [
-        '@amnis/core',
         '@amnis/state',
-        '@amnis/process',
-        '@reduxjs/toolkit',
+        '@amnis/api',
+        '@amnis/api/process',
       ],
     },
   },

@@ -6,17 +6,15 @@
   "license": "MIT",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@3.4.1",
   "scripts": {
     "build": "vite build",
-    "test": "vitest"
+    "test": "vitest --run"
   },
   "devDependencies": {
-    "@amnis/core": "^0.13.1",
-    "@amnis/eslint-config-node": "^2.2.0",
-    "@amnis/process": "^0.13.1",
-    "@amnis/state": "^0.13.1",
-    "@amnis/tsconfig-node": "^2.2.0",
+    "@amnis/api": "^0.16.6",
+    "@amnis/eslint-config-node": "^2.2.4",
+    "@amnis/state": "^0.16.11",
+    "@amnis/tsconfig-node": "^2.2.4",
     "@reduxjs/toolkit": "alpha",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",

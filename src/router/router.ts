@@ -1,49 +1,63 @@
-import type { IoProcesses } from '@amnis/core';
-import type {
-  AmnisExpressRouterOptions,
-  AmnisExpressRouterOptionsFull,
-  AmnisExpressRouterPathOptions,
-} from './router.types.js';
+import type { Router } from "express";
+import express from "express";
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 
-const routerOptionsPathDefault: AmnisExpressRouterPathOptions = {
-  enabled: true,
-  use: [],
-};
+import { mwIo } from "../mw/index.js";
+import { IoContext, IoProcessDefinition, ioOutput } from "@amnis/state";
 
-/**
- * Generates default options.
- */
-export const routerOptionsDefault = <T extends IoProcesses>(
+export const routerCreate = <T extends IoProcessDefinition>(
+  context: IoContext,
   processes: T,
-): AmnisExpressRouterOptionsFull<T> => {
-  const options = (Object.keys(processes) as unknown as (keyof T)[])
-    .reduce<AmnisExpressRouterOptionsFull<T>>(
-    (acc, key) => {
-      acc[key] = routerOptionsPathDefault;
-      return acc;
-    },
-    {} as AmnisExpressRouterOptionsFull<T>,
-  );
+): Router => {
 
-  return options;
+  /**
+   * Declare the Express router.
+   */
+  const router = express.Router();
+  
+  /**
+   * Set Express middleware.
+   */
+  router.use(helmet());
+  router.use(express.json());
+  router.use(cookieParser());
+  router.use(mwIo(context));
+
+  /**
+   * Extract the endpoints.
+   */
+  const endpoints = processes;
+
+  /**
+   * Setup the get routes.
+   */
+  Object.entries(endpoints).forEach(([methodKey, map]) => {
+    if (!["get", "post", "put", "delete"].includes(methodKey)) {
+      return;
+    }
+    const method = methodKey as "get" | "post" | "put" | "delete";
+    const handler = router[method];
+
+    Object.entries(map).forEach(([path, process]) => {
+      handler(`${path}/:param`, async (req, res) => {
+        /**
+         * Set the input param.
+         */
+        req.input.param = req.params.param;
+
+        /**
+         * Process the request.
+         */
+        const output = await process(context)(req.input, ioOutput());
+
+        res.out(output);
+        res.end();
+      });
+    });
+  });
+
+  return router;
 };
 
-/**
- * Deep copy to apply router options.
- */
-export const routerOptionsApply = <T extends IoProcesses>(
-  options: Partial<AmnisExpressRouterOptions<T>>,
-  optionsDefault: AmnisExpressRouterOptionsFull<T>,
-): AmnisExpressRouterOptionsFull<T> => {
-  const optionsApplied = (
-    Object.keys(optionsDefault) as unknown as (keyof AmnisExpressRouterOptionsFull<T>)[]
-  ).reduce<AmnisExpressRouterOptionsFull<T>>(
-    (acc, key) => {
-      acc[key] = { ...optionsDefault[key], ...options[key] };
-      return acc;
-    },
-    {} as AmnisExpressRouterOptionsFull<T>,
-  );
-
-  return optionsApplied;
-};
+export default routerCreate;

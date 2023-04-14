@@ -9,3 +9,5 @@ validators/
 
 # Backup
 test-backup/
+
+*-backup/**/*

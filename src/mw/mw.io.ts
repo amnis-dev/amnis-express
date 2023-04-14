@@ -1,10 +1,9 @@
 import type { RequestHandler } from 'express';
-import {
-  IoContext,
-  ioOutput,
-} from '@amnis/core';
-import { systemSelectors } from '@amnis/state';
-import { httpAuthorizationParse } from '@amnis/process';
+import type {
+  IoContext, IoInput,
+} from '@amnis/state';
+import { systemSlice, ioOutput } from '@amnis/state';
+import { httpAuthorizationParse } from '@amnis/api/process';
 /**
  * Parses and prepares Amnis Input and responses from Amnis Output objects.
  * Expects body to be parsed as JSON (`express.json()` middleware).
@@ -15,7 +14,7 @@ export const mwIo = (context: IoContext): RequestHandler => (
     /**
      * An active system is required for obtaining key settings.
      */
-    const system = systemSelectors.selectActive(context.store.getState());
+    const system = systemSlice.select.active(context.store.getState());
     if (!system) {
       const output = ioOutput();
       output.status = 400;
@@ -42,6 +41,16 @@ export const mwIo = (context: IoContext): RequestHandler => (
     const accessEncoded = httpAuthorizationParse(headerAuthorization);
 
     /**
+     * Extract query parameters from the request.
+     */
+    const query = Object.entries(req.query).reduce<IoInput['query']>((acc, [key, value]) => {
+      if(typeof value === 'string') {
+        acc[key] = value;
+      }
+      return acc;
+    }, {} as IoInput['query']);
+
+    /**
      * Set the input on the HTTP request object for the processors.
      */
     req.input = {
@@ -51,12 +60,17 @@ export const mwIo = (context: IoContext): RequestHandler => (
       signatureEncoded,
       challengeEncoded,
       otpEncoded,
+      query,
+      /**
+       * The param must be set later.
+       */
+      param: undefined,
     };
 
     /**
      * Applies the output to the HTTP response.
      */
-    res.output = (output) => {
+    res.out = (output) => {
       /**
        * Apply cookies to the response.
        */
