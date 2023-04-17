@@ -29,6 +29,10 @@
     "lint": "tsc --noEmit && eslint --ext .ts --ext .tsx \"./\"",
     "clean": "rimraf ./dist ./lib ./types ./tsconfig.build.tsbuildinfo ./tsconfig.tsbuildinfo"
   },
+  "peerDependencies": {
+    "@amnis/state": "^0",
+    "@amnis/api": "^0"
+  },
   "devDependencies": {
     "@amnis/api": "^0.16.6",
     "@amnis/eslint-config-node": "^2.2.4",
