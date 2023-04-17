@@ -12,12 +12,18 @@ export default defineConfig({
     rollupOptions: {
       output: {
         globals: {
+          express: 'Express',
+          helmet: 'Helmet',
+          'cookie-parser': 'CookieParser',
           '@amnis/state': 'AmnisState',
           '@amnis/api': 'AmnisApi',
           '@amnis/api/process': 'AmnisApiProcess',
         },
       },
       external: [
+        'express',
+        'helmet',
+        'cookie-parser',
         '@amnis/state',
         '@amnis/api',
         '@amnis/api/process',

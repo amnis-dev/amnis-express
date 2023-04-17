@@ -31,7 +31,10 @@
   },
   "peerDependencies": {
     "@amnis/state": "^0",
-    "@amnis/api": "^0"
+    "@amnis/api": "^0",
+    "express": "^4",
+    "helmet": "^6",
+    "cookie-parser": "^1"
   },
   "devDependencies": {
     "@amnis/api": "^0.16.6",
