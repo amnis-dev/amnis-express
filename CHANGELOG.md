@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/amnis-dev/amnis-express/compare/v0.2.0...v0.2.1) (2023-04-17)
+
+
+### Features
+
+* **Package:** Added necessary peer dependencies ([7c33ce5](https://github.com/amnis-dev/amnis-express/commit/7c33ce526bc9a2ed01c42f7f009a69e55648fa9d))
+* **Packages:** Added express js and middleware to external modules ([47e7dec](https://github.com/amnis-dev/amnis-express/commit/47e7dec4404943ba3ceac412c48c12f752fa3318))
+
 ## [0.2.0](https://github.com/amnis-dev/amnis-express/compare/v0.1.0...v0.2.0) (2023-04-17)
 
 
