@@ -1,30 +1,33 @@
 import express from 'express';
 import request from 'supertest';
 
-import {
-  accountsGet,
-  agentSign,
-  base64JsonEncode,
+import { contextSetup } from '@amnis/state/context';
+import { schemaState } from '@amnis/state/schema';
+import { schemaAuth } from '@amnis/api/schema';
+import type {
   Challenge,
+  EntityObjects,
   IoContext,
   IoOutput,
-  schemaAuth,
-  StateEntities,
-} from '@amnis/core';
-import { validateSetup } from '@amnis/process';
-import { contextSetup } from '@amnis/state';
+} from '@amnis/state';
+import {
+  agentSign,
 
-import { routerAuth } from './router.auth.js';
+  base64JsonEncode,
+  accountsGet,
+} from '@amnis/state';
+import { processAuth } from '@amnis/api/process';
+import { routerCreate } from './router.js';
 
 let context: IoContext;
 const app = express();
 
 beforeAll(async () => {
   context = await contextSetup({
-    validators: validateSetup([schemaAuth]),
+    schemas: [schemaState, schemaAuth],
   });
 
-  app.use('/auth', routerAuth(context));
+  app.use('/auth', routerCreate(context, processAuth));
 });
 
 describe('Auth Router', () => {
@@ -78,7 +81,7 @@ describe('Auth Router', () => {
     expect(cookies).toHaveLength(1);
     expect(cookies[0]).toMatch(/coreSession=[a-zA-Z0-9%_-]+; Path=\/; HttpOnly; Secure; SameSite=None/);
 
-    const responseJson = JSON.parse(response.text) as IoOutput<StateEntities>['json'];
+    const responseJson = JSON.parse(response.text) as IoOutput<EntityObjects>['json'];
 
     expect(response.status).toBe(200);
     expect(responseJson).toBeDefined();

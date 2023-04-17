@@ -1,7 +1,8 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import request from 'supertest';
-import { IoContext, ioOutput } from '@amnis/state';
+import type { IoContext } from '@amnis/state';
+import { ioOutput } from '@amnis/state';
 import { contextSetup } from '@amnis/state/context';
 import { mwIo } from './mw.io.js';
 

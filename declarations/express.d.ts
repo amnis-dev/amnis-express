@@ -1,7 +1,12 @@
-import type { IoContext, IoInput, IoMiddleware, IoOutput } from '@amnis/state';
+import type {
+  IoContext,
+  IoInput,
+  IoMiddleware,
+  IoOutput,
+} from '@amnis/state';
 
 declare global{
-  module Express {
+  namespace Express {
     interface Request {
       context: IoContext;
       input: IoInput;

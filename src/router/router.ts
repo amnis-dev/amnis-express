@@ -1,21 +1,21 @@
-import type { Router } from "express";
-import express from "express";
+import type { Router } from 'express';
+import express from 'express';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 
-import { mwIo } from "../mw/index.js";
-import { IoContext, IoProcessDefinition, ioOutput } from "@amnis/state";
+import type { IoContext, IoProcessDefinition } from '@amnis/state';
+import { ioOutput } from '@amnis/state';
+import { mwIo } from '../mw/index.js';
 
 export const routerCreate = <T extends IoProcessDefinition>(
   context: IoContext,
   processes: T,
 ): Router => {
-
   /**
    * Declare the Express router.
    */
   const router = express.Router();
-  
+
   /**
    * Set Express middleware.
    */
@@ -27,20 +27,19 @@ export const routerCreate = <T extends IoProcessDefinition>(
   /**
    * Extract the endpoints.
    */
-  const endpoints = processes;
+  const { endpoints } = processes;
 
   /**
    * Setup the get routes.
    */
   Object.entries(endpoints).forEach(([methodKey, map]) => {
-    if (!["get", "post", "put", "delete"].includes(methodKey)) {
+    if (!['get', 'post', 'put', 'delete'].includes(methodKey)) {
       return;
     }
-    const method = methodKey as "get" | "post" | "put" | "delete";
-    const handler = router[method];
+    const method = methodKey as 'get' | 'post' | 'put' | 'delete';
 
     Object.entries(map).forEach(([path, process]) => {
-      handler(`${path}/:param`, async (req, res) => {
+      router[method](`/${path}/:param?`, async (req, res) => {
         /**
          * Set the input param.
          */
