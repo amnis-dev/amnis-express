@@ -1,21 +1,24 @@
-import type { Api, IoContext, IoProcessDefinition } from '@amnis/state';
+import type {
+  Api,
+} from '@amnis/state';
 import {
   apiCreate,
   apiSlice,
   systemSlice,
 } from '@amnis/state';
-import type { Express } from 'express';
 import { routerCreate } from './router/index.js';
+import type { ServiceSetup } from './service.types.js';
 
 /**
  * Setup a complete service with process definitions.
  * This also confiugres the system with proper API data sent to the client.
  */
-export const serviceSetup = (
-  app: Express,
-  context: IoContext,
-  routes: Record<string, IoProcessDefinition>,
-) => {
+export const serviceSetup: ServiceSetup = ({
+  app,
+  context,
+  routes,
+  baseUrl = '/',
+}) => {
   const { store } = context;
 
   /**
@@ -37,7 +40,7 @@ export const serviceSetup = (
   Object.entries(routes).forEach(([path, processes]) => {
     const { meta } = processes;
     const router = routerCreate(context, processes);
-    const pathRelative = `/${path}`;
+    const pathRelative = `${baseUrl}/${path}`;
     app.use(pathRelative, router);
 
     /**
