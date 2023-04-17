@@ -4,8 +4,20 @@
   "repository": "https://github.com/amnis-dev/amnis-express",
   "author": "Eric Crowell <admin@amnis.dev>",
   "license": "MIT",
-  "private": true,
   "type": "module",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "types": "./types/index.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
