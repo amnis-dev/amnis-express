@@ -8,6 +8,7 @@ import {
 } from '@amnis/state';
 import type { CorsOptions } from 'cors';
 import corsMiddleware from 'cors';
+import express from 'express';
 import { routerCreate } from './router/index.js';
 import type { ServiceSetup } from './service.types.js';
 
@@ -16,10 +17,10 @@ import type { ServiceSetup } from './service.types.js';
  * This also confiugres the system with proper API data sent to the client.
  */
 export const serviceSetup: ServiceSetup = ({
-  app,
+  app = express(),
   context,
   routes,
-  baseUrl = '/',
+  baseUrl = '',
 }) => {
   const { store } = context;
 
@@ -91,6 +92,8 @@ export const serviceSetup: ServiceSetup = ({
    * Dispatch the api data to the store.
    */
   store.dispatch(apiSlice.action.createMany(apiData));
+
+  return app;
 };
 
 export default serviceSetup;

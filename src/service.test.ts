@@ -6,14 +6,14 @@ import {
   accountsGet, agentSign, base64JsonEncode,
 } from '@amnis/state';
 import { contextSetup } from '@amnis/state/context';
-import express from 'express';
+import type { Express } from 'express';
 import { processAuth, processCrud } from '@amnis/api/process';
 import { schemaAuth } from '@amnis/api/schema';
 import { schemaState } from '@amnis/state/schema';
 import request from 'supertest';
 import { serviceSetup } from './service.js';
 
-const app = express();
+let app: Express;
 let context: IoContext;
 
 beforeAll(async () => {
@@ -21,8 +21,7 @@ beforeAll(async () => {
     schemas: [schemaAuth, schemaState],
   });
 
-  serviceSetup({
-    app,
+  app = serviceSetup({
     context,
     routes: {
       auth: processAuth,
