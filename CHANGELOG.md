@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/amnis-dev/amnis-express/compare/v0.2.2...v0.2.3) (2023-04-19)
+
+
+### Bug Fixes
+
+* **Service:** Resolved issue with adding a double-slash when no baseURL is specified ([34ffb82](https://github.com/amnis-dev/amnis-express/commit/34ffb8281983b5d6780c383312677cefef3172bf))
+
 ### [0.2.2](https://github.com/amnis-dev/amnis-express/compare/v0.2.1...v0.2.2) (2023-04-19)
 
 
