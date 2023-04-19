@@ -30,19 +30,21 @@
     "clean": "rimraf ./dist ./lib ./types ./tsconfig.build.tsbuildinfo ./tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "@amnis/state": "^0",
     "@amnis/api": "^0",
+    "@amnis/state": "^0",
+    "cookie-parser": "^1",
     "express": "^4",
     "helmet": "^6",
-    "cookie-parser": "^1"
+    "cors": "^2"
   },
   "devDependencies": {
-    "@amnis/api": "^0.16.6",
+    "@amnis/api": "^0.16.7",
     "@amnis/eslint-config-node": "^2.2.4",
-    "@amnis/state": "^0.16.11",
+    "@amnis/state": "^0.16.18",
     "@amnis/tsconfig-node": "^2.2.4",
     "@reduxjs/toolkit": "alpha",
     "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.13.0",
@@ -51,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.3",

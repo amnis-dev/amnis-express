@@ -2,23 +2,26 @@ lockfileVersion: '6.0'
 
 devDependencies:
   '@amnis/api':
-    specifier: ^0.16.6
-    version: 0.16.6(@amnis/state@0.16.11)
+    specifier: ^0.16.7
+    version: 0.16.7(@amnis/state@0.16.18)
   '@amnis/eslint-config-node':
     specifier: ^2.2.4
     version: 2.2.4(eslint@8.34.0)(typescript@4.9.5)
   '@amnis/state':
-    specifier: ^0.16.11
-    version: 0.16.11(@reduxjs/toolkit@2.0.0-alpha.4)
+    specifier: ^0.16.18
+    version: 0.16.18(@reduxjs/toolkit@2.0.0-alpha.5)
   '@amnis/tsconfig-node':
     specifier: ^2.2.4
     version: 2.2.4(typescript@4.9.5)
   '@reduxjs/toolkit':
     specifier: alpha
-    version: 2.0.0-alpha.4
+    version: 2.0.0-alpha.5
   '@types/cookie-parser':
     specifier: ^1.4.3
     version: 1.4.3
+  '@types/cors':
+    specifier: ^2.8.13
+    version: 2.8.13
   '@types/express':
     specifier: ^4.17.17
     version: 4.17.17
@@ -43,6 +46,9 @@ devDependencies:
   cookie-parser:
     specifier: ^1.4.6
     version: 1.4.6
+  cors:
+    specifier: ^2.8.5
+    version: 2.8.5
   eslint:
     specifier: ^8.34.0
     version: 8.34.0
@@ -88,12 +94,12 @@ devDependencies:
 
 packages:
 
-  /@amnis/api@0.16.6(@amnis/state@0.16.11):
-    resolution: {integrity: sha512-BVku5B3P1vhlb/r1deTi/Swp6h2kjnlDkDbH3xqLVQoDTT2QfazGTWs1WHQw4KuUS5z4ZB4U5gl3Ou4iAMWuxQ==}
+  /@amnis/api@0.16.7(@amnis/state@0.16.18):
+    resolution: {integrity: sha512-CtuSD+4OAfkZeGc0N+LGQHVkuKmjK07U0ClvpT3ivoMDn4gJPwrAQxDlOqaK4ebfC5/n6n4G6PO+mYjg1fckLg==}
     peerDependencies:
       '@amnis/state': ^0
     dependencies:
-      '@amnis/state': 0.16.11(@reduxjs/toolkit@2.0.0-alpha.4)
+      '@amnis/state': 0.16.18(@reduxjs/toolkit@2.0.0-alpha.5)
     dev: true
 
   /@amnis/eslint-config-node@2.2.4(eslint@8.34.0)(typescript@4.9.5):
@@ -114,12 +120,12 @@ packages:
       - typescript
     dev: true
 
-  /@amnis/state@0.16.11(@reduxjs/toolkit@2.0.0-alpha.4):
-    resolution: {integrity: sha512-1WFWLQQJyIUN+rub+4IOd93DmjvHCi3lB1LxYQL+Oui8etGW4vkI5jCNPAtY58MjFcf1l2QFPpupV6W6ymBB5w==}
+  /@amnis/state@0.16.18(@reduxjs/toolkit@2.0.0-alpha.5):
+    resolution: {integrity: sha512-2WnbrX4YQiY5ABONTMNrbr/evXY1au69PTVjTskPaTFBr7YPyqMiaSY0pRQmvCvBmWp3My1SOPkyA8tyc76JTw==}
     peerDependencies:
       '@reduxjs/toolkit': '*'
     dependencies:
-      '@reduxjs/toolkit': 2.0.0-alpha.4
+      '@reduxjs/toolkit': 2.0.0-alpha.5
     dev: true
 
   /@amnis/tsconfig-node@2.2.4(typescript@4.9.5):
@@ -447,8 +453,8 @@ packages:
       tslib: 2.5.0
     dev: true
 
-  /@reduxjs/toolkit@2.0.0-alpha.4:
-    resolution: {integrity: sha512-iVurxfOJ2yeTK7AJY6H9d+MKT4iasvjx6Iq0cwv3OavClHdwGXirMPUlielRYH3SOybqRreRRW15BixUXwbQKg==}
+  /@reduxjs/toolkit@2.0.0-alpha.5:
+    resolution: {integrity: sha512-Njfrxq35Ib0RFTOcd0qA0e87ZNVHRLbVh4ptzlmfHGGBsHoh4CnLTEHdV48RDEAkCfu9G5KhFc2j7ZQD9V4CLA==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
       react-redux: ^7.2.1 || ^8.0.2
@@ -458,10 +464,10 @@ packages:
       react-redux:
         optional: true
     dependencies:
-      immer: 10.0.0-beta.6
-      redux: 5.0.0-alpha.4
-      redux-thunk: 3.0.0-alpha.3(redux@5.0.0-alpha.4)
-      reselect: 4.1.7
+      immer: 10.0.1
+      redux: 5.0.0-alpha.5
+      redux-thunk: 3.0.0-alpha.3(redux@5.0.0-alpha.5)
+      reselect: 4.1.8
     dev: true
 
   /@tsconfig/node10@1.0.9:
@@ -511,6 +517,12 @@ packages:
 
   /@types/cookiejar@2.1.2:
     resolution: {integrity: sha512-t73xJJrvdTjXrn4jLS9VSGRbz0nUY3cl2DMGDU48lKl+HR9dbbjW2A9r3g40VA++mQpy6uuHg33gy7du2BKpog==}
+    dev: true
+
+  /@types/cors@2.8.13:
+    resolution: {integrity: sha512-RG8AStHlUiV5ysZQKq97copd2UmVYw3/pRMLefISZ3S1hK104Cwm7iLQ3fTKx+lsUH2CE8FlLaYeEA2LSeqYUA==}
+    dependencies:
+      '@types/node': 18.13.0
     dev: true
 
   /@types/express-serve-static-core@4.17.33:
@@ -1320,6 +1332,14 @@ packages:
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+    dev: true
+
+  /cors@2.8.5:
+    resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
     dev: true
 
   /create-require@1.1.1:
@@ -2445,8 +2465,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /immer@10.0.0-beta.6:
-    resolution: {integrity: sha512-5PllQBoP1JYTSdb9MicEkqmNeu25djGSXPlZUdr1+xziDjwuiFbfEn7GJPeJ9ee4S3wxAI0MSorxMBYoqsc8bA==}
+  /immer@10.0.1:
+    resolution: {integrity: sha512-zg++jJLsKKTwXGeSYIw0HgChSYQGtu0UDTnbKx5aGLYgte4CwTmH9eJDYyQ6FheyUtBe+lQW9FrGxya1G+Dtmg==}
     dev: true
 
   /import-fresh@3.3.0:
@@ -2992,6 +3012,11 @@ packages:
       validate-npm-package-license: 3.0.4
     dev: true
 
+  /object-assign@4.1.1:
+    resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
     dev: true
@@ -3398,16 +3423,16 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /redux-thunk@3.0.0-alpha.3(redux@5.0.0-alpha.4):
+  /redux-thunk@3.0.0-alpha.3(redux@5.0.0-alpha.5):
     resolution: {integrity: sha512-tRoYt//uXllaNHsdla4sFbCPf0/50BYf6NDRNtg66IZXZcLXiQNTH5LKcIISd0+7BZqFq204JgJcxtih4QLTXQ==}
     peerDependencies:
       redux: ^4
     dependencies:
-      redux: 5.0.0-alpha.4
+      redux: 5.0.0-alpha.5
     dev: true
 
-  /redux@5.0.0-alpha.4:
-    resolution: {integrity: sha512-iqGowIXvDHEUze3XLKjiAbKSNF0lkQr1WVEQDIH+6SAK88VfdMEWM/4bZhI6WGmjC6NKG8KCBZ0fqPD38v/0Xw==}
+  /redux@5.0.0-alpha.5:
+    resolution: {integrity: sha512-PIdtgTJ5LrldU/BD5/z6RYzri0iFpdDUphKWOFCP92XHmnnO0CKydtwYQZm3ptuaEduEne9248G3xwprbD/daA==}
     dev: true
 
   /regexp.prototype.flags@1.4.3:
@@ -3429,8 +3454,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /reselect@4.1.7:
-    resolution: {integrity: sha512-Zu1xbUt3/OPwsXL46hvOOoQrap2azE7ZQbokq61BQfiXvhewsKDwhMeZjTX9sX0nvw1t/U5Audyn1I9P/m9z0A==}
+  /reselect@4.1.8:
+    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
     dev: true
 
   /resolve-from@4.0.0:

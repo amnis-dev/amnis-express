@@ -14,6 +14,7 @@ export default defineConfig({
         globals: {
           express: 'Express',
           helmet: 'Helmet',
+          cors: 'Cors',
           'cookie-parser': 'CookieParser',
           '@amnis/state': 'AmnisState',
           '@amnis/api': 'AmnisApi',
@@ -23,6 +24,7 @@ export default defineConfig({
       external: [
         'express',
         'helmet',
+        'cors',
         'cookie-parser',
         '@amnis/state',
         '@amnis/api',

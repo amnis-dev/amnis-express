@@ -6,6 +6,8 @@ import {
   apiSlice,
   systemSlice,
 } from '@amnis/state';
+import type { CorsOptions } from 'cors';
+import corsMiddleware from 'cors';
 import { routerCreate } from './router/index.js';
 import type { ServiceSetup } from './service.types.js';
 
@@ -28,6 +30,38 @@ export const serviceSetup: ServiceSetup = ({
   if (!system) {
     throw new Error('No active system.');
   }
+
+  /**
+   * Get the list of allowed origins from cors.
+   * If the list is empty, then allow all origins.
+   */
+  const { cors } = system;
+
+  /**
+   * Setup the CORS middleware.
+   */
+  app.use(corsMiddleware((req, callback) => {
+    const origin = req.header('Origin');
+    const corsOptions: CorsOptions = {
+      origin: false,
+    };
+
+    if (!origin || !cors) {
+      return callback(null, corsOptions);
+    }
+
+    if (cors.length === 0) {
+      corsOptions.origin = true;
+      return callback(null, corsOptions);
+    }
+
+    if (cors.includes(origin)) {
+      corsOptions.origin = true;
+      return callback(null, corsOptions);
+    }
+
+    return callback(null, corsOptions);
+  }));
 
   /**
    * Api data.
