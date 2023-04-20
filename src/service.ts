@@ -45,6 +45,7 @@ export const serviceSetup: ServiceSetup = ({
     const origin = req.header('Origin');
     const corsOptions: CorsOptions = {
       origin: false,
+      credentials: true,
     };
 
     if (!origin || !cors) {
