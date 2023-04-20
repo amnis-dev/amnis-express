@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/amnis-dev/amnis-express/compare/v0.2.3...v0.2.4) (2023-04-20)
+
+
+### Features
+
+* **CORS:** Added header to accept credentials ([c63548f](https://github.com/amnis-dev/amnis-express/commit/c63548f48eb5fc8555b202533403cca0d1bc4187))
+
 ### [0.2.3](https://github.com/amnis-dev/amnis-express/compare/v0.2.2...v0.2.3) (2023-04-19)
 
 
