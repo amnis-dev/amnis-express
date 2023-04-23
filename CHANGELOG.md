@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/amnis-dev/amnis-express/compare/v0.2.4...v0.2.5) (2023-04-23)
+
+
+### Bug Fixes
+
+* **Cookies:** Cookies now use Lax same-site rule ([f9dd138](https://github.com/amnis-dev/amnis-express/commit/f9dd138545b8c83f663ea4d3e15eecc92657d92f))
+* **Tests:** Fixed tests with new login payload ([8086f7f](https://github.com/amnis-dev/amnis-express/commit/8086f7f18985e4a1d35f9c6f49c74de1ebcb7e51))
+
 ### [0.2.4](https://github.com/amnis-dev/amnis-express/compare/v0.2.3...v0.2.4) (2023-04-20)
 
 
