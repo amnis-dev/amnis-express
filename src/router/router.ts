@@ -51,7 +51,6 @@ export const routerCreate = <T extends IoProcessDefinition>(
         const output = await process(context)(req.input, ioOutput());
 
         res.out(output);
-        res.end();
       });
     });
   });

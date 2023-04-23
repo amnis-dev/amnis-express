@@ -42,7 +42,7 @@ describe('Auth Router', () => {
      */
     const body = {
       handle: accountUser.handle,
-      $credential: accountUser.credential.$id,
+      credential: accountUser.credential,
       password: accountUser.password,
     };
 

@@ -42,7 +42,7 @@ test('should create challenge and login with default user account and perform ba
    */
   const body = {
     handle: accountUser.handle,
-    $credential: accountUser.credential.$id,
+    credential: accountUser.credential,
     password: accountUser.password,
   };
 
