@@ -33,14 +33,14 @@
     "@amnis/api": "^0",
     "@amnis/state": "^0",
     "cookie-parser": "^1",
+    "cors": "^2",
     "express": "^4",
-    "helmet": "^6",
-    "cors": "^2"
+    "helmet": "^6"
   },
   "devDependencies": {
-    "@amnis/api": "^0.16.7",
+    "@amnis/api": "^0.16.13",
     "@amnis/eslint-config-node": "^2.2.4",
-    "@amnis/state": "^0.16.18",
+    "@amnis/state": "^0.16.20",
     "@amnis/tsconfig-node": "^2.2.4",
     "@reduxjs/toolkit": "alpha",
     "@types/cookie-parser": "^1.4.3",

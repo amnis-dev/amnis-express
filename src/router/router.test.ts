@@ -79,7 +79,7 @@ describe('Auth Router', () => {
     const cookies = response.header['set-cookie'] as string[];
 
     expect(cookies).toHaveLength(1);
-    expect(cookies[0]).toMatch(/coreSession=[a-zA-Z0-9%_-]+; Path=\/; HttpOnly; Secure; SameSite=None/);
+    expect(cookies[0]).toMatch(/coreSession=[a-zA-Z0-9%_-]+; Path=\/; HttpOnly; Secure; SameSite=Lax/);
 
     const responseJson = JSON.parse(response.text) as IoOutput<EntityObjects>['json'];
 

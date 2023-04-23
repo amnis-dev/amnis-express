@@ -81,7 +81,7 @@ test('should create challenge and login with default user account and perform ba
   const cookies = responseLogin.header['set-cookie'] as string[];
 
   expect(cookies).toHaveLength(1);
-  expect(cookies[0]).toMatch(/coreSession=[a-zA-Z0-9%_-]+; Path=\/; HttpOnly; Secure; SameSite=None/);
+  expect(cookies[0]).toMatch(/coreSession=[a-zA-Z0-9%_-]+; Path=\/; HttpOnly; Secure; SameSite=Lax/);
 
   const responseLoginJson = JSON.parse(responseLogin.text) as IoOutput<EntityObjects>['json'];
 

@@ -74,15 +74,14 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
      * Apply cookies to the response.
      * Middleware can overwrite this method to perform post operations.
      */
-    Object.keys(output.cookies).forEach((cookieName) => {
-      const cookieValue = output.cookies[cookieName];
-      if (cookieValue === undefined) {
-        res.clearCookie(cookieName);
+    Object.entries(output.cookies).forEach(([name, value]) => {
+      if (value === undefined) {
+        res.clearCookie(name);
         return;
       }
-      res.cookie(cookieName, cookieValue, {
+      res.cookie(name, value, {
         path: '/',
-        sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'lax',
+        sameSite: 'lax',
         httpOnly: true,
         secure: process.env.NODE_ENV !== 'development',
       });
