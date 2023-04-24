@@ -87,7 +87,7 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
       }
       res.cookie(name, value, {
         path: '/',
-        sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'lax',
+        sameSite: 'none',
         httpOnly: true,
         secure: process.env.NODE_ENV !== 'development',
       });
