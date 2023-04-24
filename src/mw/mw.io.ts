@@ -40,8 +40,8 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
   const accessEncoded = httpAuthorizationParse(headerAuthorization);
 
   /**
-     * Extract query parameters from the request.
-     */
+   * Extract query parameters from the request.
+   */
   const query = Object.entries(req.query).reduce<IoInput['query']>((acc, [key, value]) => {
     if (typeof value === 'string') {
       acc[key] = value;
@@ -50,10 +50,16 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
   }, {} as IoInput['query']);
 
   /**
-     * Set the input on the HTTP request object for the processors.
-     */
+   * Attempt to obtain the IP address from the request.
+   */
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+  /**
+   * Set the input on the HTTP request object for the processors.
+   */
   req.input = {
     body,
+    ip: typeof ip === 'string' ? ip : undefined,
     sessionEncrypted,
     accessEncoded,
     signatureEncoded,
@@ -81,7 +87,7 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
       }
       res.cookie(name, value, {
         path: '/',
-        sameSite: 'lax',
+        sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'lax',
         httpOnly: true,
         secure: process.env.NODE_ENV !== 'development',
       });
