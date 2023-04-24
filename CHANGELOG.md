@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/amnis-dev/amnis-express/compare/v0.2.5...v0.2.6) (2023-04-24)
+
+
+### Features
+
+* **Cookie:** Same site cookie setting delcared to none ([caa0955](https://github.com/amnis-dev/amnis-express/commit/caa0955a8d0d3b64dae6357aedf1bb328a5cf2bd))
+* **Cookies:** Same site property is only set to non in production ([0e750aa](https://github.com/amnis-dev/amnis-express/commit/0e750aabc3d708155c8326c62ddcb11f64b0cfa2))
+* **IP:** IP address is added to the input ([c166b2c](https://github.com/amnis-dev/amnis-express/commit/c166b2cf921401ed83d8354ffa959962f499a3ce))
+
 ### [0.2.5](https://github.com/amnis-dev/amnis-express/compare/v0.2.4...v0.2.5) (2023-04-23)
 
 
