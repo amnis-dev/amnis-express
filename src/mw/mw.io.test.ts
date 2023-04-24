@@ -98,7 +98,7 @@ describe('I/O Middleware', () => {
     const cookies = response.header['set-cookie'] as string[];
 
     expect(cookies).toHaveLength(1);
-    expect(cookies[0]).toBe('myCookie=yum; Path=/; HttpOnly; Secure; SameSite=Lax');
+    expect(cookies[0]).toBe('myCookie=yum; Path=/; HttpOnly; Secure; SameSite=None');
   });
 
   test('should set param on input and respond successfully', async () => {
