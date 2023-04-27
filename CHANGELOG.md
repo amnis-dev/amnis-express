@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/amnis-dev/amnis-express/compare/v0.2.7...v0.2.8) (2023-04-27)
+
+
+### Bug Fixes
+
+* **Cookies:** Fixed issue deleting cookies ([f5f872f](https://github.com/amnis-dev/amnis-express/commit/f5f872f73c72ed1063eb8ea5e4252607630f51db))
+
 ### [0.2.7](https://github.com/amnis-dev/amnis-express/compare/v0.2.6...v0.2.7) (2023-04-24)
 
 ### [0.2.6](https://github.com/amnis-dev/amnis-express/compare/v0.2.5...v0.2.6) (2023-04-24)
