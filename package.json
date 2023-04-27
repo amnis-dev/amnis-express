@@ -38,9 +38,9 @@
     "helmet": "^6"
   },
   "devDependencies": {
-    "@amnis/api": "^0.16.13",
+    "@amnis/api": "^0.16.14",
     "@amnis/eslint-config-node": "^2.2.4",
-    "@amnis/state": "^0.16.20",
+    "@amnis/state": "^0.16.23",
     "@amnis/tsconfig-node": "^2.2.4",
     "@reduxjs/toolkit": "alpha",
     "@types/cookie-parser": "^1.4.3",

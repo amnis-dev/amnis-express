@@ -36,7 +36,11 @@ export const serviceSetup: ServiceSetup = ({
    * Get the list of allowed origins from cors.
    * If the list is empty, then allow all origins.
    */
-  const { cors } = system;
+  const { cors, proxyTrust } = system;
+
+  if (proxyTrust) {
+    app.set('trust proxy', proxyTrust);
+  }
 
   /**
    * Setup the CORS middleware.

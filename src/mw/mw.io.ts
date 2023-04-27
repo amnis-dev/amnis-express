@@ -1,4 +1,4 @@
-import type { RequestHandler } from 'express';
+import type { CookieOptions, RequestHandler } from 'express';
 import type {
   IoContext, IoInput,
 } from '@amnis/state';
@@ -76,22 +76,26 @@ export const mwIo = (context: IoContext): RequestHandler => function ioMiddlewar
    * Applies the output to the HTTP response.
    */
   res.out = (output) => {
-    /**
-     * Apply cookies to the response.
-     * Middleware can overwrite this method to perform post operations.
-     */
-    Object.entries(output.cookies).forEach(([name, value]) => {
-      if (value === undefined) {
-        res.clearCookie(name);
-        return;
-      }
-      res.cookie(name, value, {
+    const cookieEntries = Object.entries(output.cookies);
+    if (cookieEntries.length > 0) {
+      const cookieOptions: CookieOptions = {
         path: '/',
         sameSite: process.env.NODE_ENV !== 'development' ? 'none' : 'lax',
         httpOnly: true,
         secure: process.env.NODE_ENV !== 'development',
+      };
+      /**
+       * Apply cookies to the response.
+       * Middleware can overwrite this method to perform post operations.
+       */
+      cookieEntries.forEach(([name, value]) => {
+        if (value === undefined) {
+          res.clearCookie(name, cookieOptions);
+          return;
+        }
+        res.cookie(name, value, cookieOptions);
       });
-    });
+    }
 
     res.status(output.status).json(output.json);
   };

@@ -2,14 +2,14 @@ lockfileVersion: '6.0'
 
 devDependencies:
   '@amnis/api':
-    specifier: ^0.16.13
-    version: 0.16.13(@amnis/state@0.16.20)
+    specifier: ^0.16.14
+    version: 0.16.14(@amnis/state@0.16.23)
   '@amnis/eslint-config-node':
     specifier: ^2.2.4
     version: 2.2.4(eslint@8.34.0)(typescript@4.9.5)
   '@amnis/state':
-    specifier: ^0.16.20
-    version: 0.16.20(@reduxjs/toolkit@2.0.0-alpha.5)
+    specifier: ^0.16.23
+    version: 0.16.23(@reduxjs/toolkit@2.0.0-alpha.5)
   '@amnis/tsconfig-node':
     specifier: ^2.2.4
     version: 2.2.4(typescript@4.9.5)
@@ -94,12 +94,12 @@ devDependencies:
 
 packages:
 
-  /@amnis/api@0.16.13(@amnis/state@0.16.20):
-    resolution: {integrity: sha512-dEJiI7rWgq2J3NOcKKyvqk6zYv6SLVVQ+FrLjdUnn4iwY274VP6//NDX7Ox28uXpQWry30WT1KLxf0DrnAQ+Bw==}
+  /@amnis/api@0.16.14(@amnis/state@0.16.23):
+    resolution: {integrity: sha512-1lOfRs/1+VOQx8VNgusvlqcJVC+P7PUUaWAqv6N/RZSoLjip12BUEqJG+MISBQWl+jDVUw+g9hSc0HCXoNjd8w==}
     peerDependencies:
       '@amnis/state': ^0
     dependencies:
-      '@amnis/state': 0.16.20(@reduxjs/toolkit@2.0.0-alpha.5)
+      '@amnis/state': 0.16.23(@reduxjs/toolkit@2.0.0-alpha.5)
     dev: true
 
   /@amnis/eslint-config-node@2.2.4(eslint@8.34.0)(typescript@4.9.5):
@@ -120,8 +120,8 @@ packages:
       - typescript
     dev: true
 
-  /@amnis/state@0.16.20(@reduxjs/toolkit@2.0.0-alpha.5):
-    resolution: {integrity: sha512-qCPtuuRctI1tqt+PI8LUrzNuRZgqcx73OZz85yv/rHslHwyQaj9x8N3VETyFl/R7+MOEZasrZz6C6HjwqDMIjg==}
+  /@amnis/state@0.16.23(@reduxjs/toolkit@2.0.0-alpha.5):
+    resolution: {integrity: sha512-DqLUZcTPjaOhG5G7RFALoy0DHAIqWElE8ANZSFvXRyOjgjDDhMKpitHIw6BgYB0d0X6NxNN+XVwx2KJE8e/shw==}
     peerDependencies:
       '@reduxjs/toolkit': '*'
     dependencies:
