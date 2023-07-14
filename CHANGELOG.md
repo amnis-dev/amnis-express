@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/amnis-dev/amnis-express/compare/v0.2.8...v0.3.0) (2023-07-14)
+
+
+### Features
+
+* **Dependencies:** Updated necessary packages ([7e45fc2](https://github.com/amnis-dev/amnis-express/commit/7e45fc2d0343003769a38fe97b218809723f00f1))
+* **Package:** Upgraded package ([e2ac0bd](https://github.com/amnis-dev/amnis-express/commit/e2ac0bd744c6014a25af5ec335aa305b26c95ad5))
+
+
+### Bug Fixes
+
+* **Package:** Resolve lock file ([f5d739e](https://github.com/amnis-dev/amnis-express/commit/f5d739e2fda9b6c8e36e0210b50057930b96bc03))
+
 ### [0.2.8](https://github.com/amnis-dev/amnis-express/compare/v0.2.7...v0.2.8) (2023-04-27)
 
 

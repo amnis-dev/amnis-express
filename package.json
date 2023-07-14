@@ -1,6 +1,6 @@
 {
   "name": "@amnis/express",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "repository": "https://github.com/amnis-dev/amnis-express",
   "author": "Eric Crowell <admin@amnis.dev>",
   "license": "MIT",
