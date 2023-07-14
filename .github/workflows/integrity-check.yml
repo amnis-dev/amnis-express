@@ -1,11 +1,8 @@
 name: Integrity Check
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
 
 jobs:
 
@@ -48,6 +45,9 @@ jobs:
       
       - name: Install NodeJS Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Update Amnis Dependencies
+        run: pnpm up "@amnis/*"
 
       - name: Lint for Code-Style Errors
         run: pnpm lint
